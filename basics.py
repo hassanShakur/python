@@ -35,6 +35,9 @@ elif not 2 < 3:
 else:
     print("❌")
 
+if "s" in "Hassan":
+    print("😁😜")
+
 # Loops
 # Reegborg's world
 fruits = ["Banana", "Apple", "Berry"]
@@ -52,7 +55,16 @@ while counter != 3:
 
 # Function
 def printer(text):
+    # Docstring => Documentation string of the func
+    """Takes in a text as string and prints it out."""
     print(text)
 
 
 printer("Printer function called.")
+
+# Dictionaries - Use JSON SYNTAX - {'key': 'value'}
+converter = {1: "One", 2: "Two", 3: "Three", "apple": "fruit"}
+one = converter[1]
+
+for key in converter:
+    print(converter[key])
