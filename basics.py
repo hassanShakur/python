@@ -68,3 +68,13 @@ one = converter[1]
 
 for key in converter:
     print(converter[key])
+
+
+# Scopes
+# Scopes are only defined in functions & not in other blocks like if, while...
+GLO = "Global var"
+
+
+def accessGlo():
+    global GLO
+    GLO = "Modified global var glo"
