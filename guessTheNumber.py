@@ -1,18 +1,18 @@
 import random
 
 
-def playGame(attempts):
-    randNum = random.randint(1, 100)
-    correctGuess = False
-    while attempts != 0 and not correctGuess:
+def play_game(attempts):
+    rand_num = random.randint(1, 100)
+    correct_guess = False
+    while attempts != 0 and not correct_guess:
         print(f"You have {attempts} attempts remaining.")
         guess = int(input("\nMake a guess: "))
-        if guess == randNum:
-            correctGuess = True
-            return print(f"Correct 🥳🍾🎈. The answer is {randNum}.")
+        if guess == rand_num:
+            correct_guess = True
+            return print(f"Correct 🥳🍾🎈. The answer is {rand_num}.")
         else:
             attempts -= 1
-            if guess < randNum:
+            if guess < rand_num:
                 print("Too low")
             else:
                 print("Too high")
@@ -21,7 +21,7 @@ def playGame(attempts):
             return print("\nToo bad 🥹... You've lost")
 
 
-def pickDifficulty():
+def pick_difficulty():
     difficulty = str(input("Pick a difficulty: Hard or Easy: ")).lower()
 
     if difficulty == "hard":
@@ -30,10 +30,10 @@ def pickDifficulty():
         return 10
     else:
         print("Invalid choice!!!")
-        return pickDifficulty()
+        return pick_difficulty()
 
 
-def continueGame():
+def continue_game():
     response = str(input("Wanna play again? 'Yes ✅' or 'No 🙅‍♂️': ").lower())
     if response == "yes":
         return True
@@ -41,18 +41,18 @@ def continueGame():
         return False
     else:
         print("Invalid choice!!!")
-        return continueGame()
+        return continue_game()
 
 
-def startPlaying():
+def start_playing():
     print("\nThink of a number between 1 and 100")
-    attempts = pickDifficulty()
-    playGame(attempts)
-    continuePlaying = continueGame()
-    if continuePlaying:
-        startPlaying()
+    attempts = pick_difficulty()
+    play_game(attempts)
+    continue_playing = continue_game()
+    if continue_playing:
+        start_playing()
     else:
         print("Have a nice time 🙂.")
 
 
-startPlaying()
+start_playing()

@@ -75,6 +75,6 @@ for key in converter:
 GLO = "Global var"
 
 
-def accessGlo():
+def access_glo():
     global GLO
     GLO = "Modified global var glo"
