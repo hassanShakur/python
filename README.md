@@ -16,3 +16,24 @@ class House:
 
 home = House("home", "China")
 ```
+
+- Inheritance
+
+  ```py
+    class Mansion(House):
+        def __init__(self) -> None:
+            super().__init__()
+
+  ```
+
+- Overriding
+  ```py
+    class Mansion(House):
+        def __init__(self) -> None:
+            super().__init__()
+
+        def some_method_override:
+            super().some_method_override() # To execute what parent method does
+            # Extra specialized implementation
+            print('Other stuff')
+  ```
