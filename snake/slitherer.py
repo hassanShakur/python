@@ -16,11 +16,17 @@ class Snake:
 
     def create_snake(self):
         for pos in START_POS:
-            tur = Turtle("square")
-            tur.color("white")
-            tur.penup()
-            tur.goto(pos)
-            self.snake.append(tur)
+            self.extend(pos)
+
+    def extend(self, position):
+        tur = Turtle("square")
+        tur.color("white")
+        tur.penup()
+        tur.goto(position)
+        self.snake.append(tur)
+
+    def grow(self):
+        self.extend(self.snake[-1].position())
 
     def move(self):
         for part in range(len(self.snake) - 1, 0, -1):
@@ -29,7 +35,6 @@ class Snake:
             self.snake[part].goto(x_goto, y_goto)
 
         self.head.forward(20)
-        
 
     def up(self):
         if self.head.heading() != DOWN:

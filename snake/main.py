@@ -2,6 +2,7 @@ from turtle import Screen
 import time
 from slitherer import Snake
 from food import Food
+from score import Score
 
 
 screen = Screen()
@@ -12,6 +13,7 @@ screen.tracer(0)
 
 snake = Snake()
 food = Food()
+score = Score()
 
 screen.listen()
 screen.onkey(snake.up, "Up")
@@ -26,9 +28,27 @@ while game_on:
     time.sleep(0.1)
     snake.move()
 
-    # Check for colission
-    if snake.head.distance(food.food) < 15:  # As food is 10x10
+    # Check for colission with food
+    if snake.head.distance(food) < 16:  # As food is 10x10
         food.re_position()
+        score.update_score()
+        snake.grow()
+
+    # Check for colission with wall
+    if (
+        snake.head.xcor() < -380
+        or snake.head.xcor() > 380
+        or snake.head.ycor() < -280
+        or snake.head.ycor() > 280
+    ):
+        game_on = False
+        score.game_over()
+
+    # Colission with self => Slice head
+    for segment in snake.snake[1:]:
+        if snake.head.distance(segment) < 15:
+            game_on = False
+            score.game_over()
 
 
 screen.exitonclick()
