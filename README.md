@@ -27,6 +27,7 @@ home = House("home", "China")
   ```
 
 - Overriding
+
   ```py
     class Mansion(House):
         def __init__(self) -> None:

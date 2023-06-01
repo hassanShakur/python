@@ -18,7 +18,7 @@ def play_game(attempts):
                 print("Too high")
 
         if attempts == 0:
-            return print("\nToo bad 🥹... You've lost")
+            return print(f"\nToo bad 🥹... You've lost. The number was {rand_num}.")
 
 
 def pick_difficulty():
