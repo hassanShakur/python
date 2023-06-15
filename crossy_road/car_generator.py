@@ -1,0 +1,2 @@
+class CarGenerator:
+    pass
