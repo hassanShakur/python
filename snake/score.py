@@ -7,6 +7,8 @@ class Score(Turtle):
     ) -> None:
         super().__init__(shape, undobuffersize, visible)
         self.score = 0
+        with open(file="./snake/data.txt") as data:
+            self.high_score = int(data.read())
         self.penup()
         self.color("white")
         self.goto(0, 270)
@@ -24,5 +26,16 @@ class Score(Turtle):
         self.write_score()
 
     def game_over(self):
+        self.check_for_high_score()
         self.goto(0, 0)
-        self.write(arg=f"Game over!", align="center", font=("Arial", 18, "normal"))
+        self.write(
+            arg=f"Game over! Highest score: {self.high_score}",
+            align="center",
+            font=("Arial", 18, "normal"),
+        )
+
+    def check_for_high_score(self):
+        if self.score > self.high_score:
+            self.high_score = self.score
+            with open("./snake/data.txt", mode="w") as data:
+                data.write(f"{self.high_score}")

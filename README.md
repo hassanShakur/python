@@ -38,3 +38,20 @@ home = House("home", "China")
             # Extra specialized implementation
             print('Other stuff')
   ```
+
+## Files & Directories
+
+You can read, write, append etc to a file with the syntax:
+
+```py
+# Read
+with open(file='text.txt', mode='r') as file:
+    content = file.read()
+    print(content)
+
+# Write
+with open(file='text.txt', mode='w') as file:
+    file.write('Some text')
+```
+
+`append` will have the mode `a`. To create a new file, use mode `w` and the file name should not be exixting in the target directory.
