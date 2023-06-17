@@ -1,5 +1,23 @@
 # Python
 
+## Intros
+
+### List Comprehension
+
+Making a new lists out of python `sequences` like list, string, tuple & range, without loops.
+
+```py
+# New list where each item is increased by 3
+old_list = [1, 2, 3]
+new_list = [old_val + 3 for old_val in old_list]
+```
+
+The comprehension can be conditional, i.e only if a test is passed. Just add an if statement at the end.
+
+```py
+new = [x for x in old if x === 'test']
+```
+
 ## OOP Basics
 
 ```py
@@ -39,6 +57,27 @@ home = House("home", "China")
             print('Other stuff')
   ```
 
+## Turtle
+
+```py
+# Load image - only supports gifs
+import turtle
+
+screen = turtle.Screen()
+
+img = 'path_to_image.gif'
+screen.addshape(img)
+turtle.shape(img)
+
+# Click on screen but do not exit
+turtle.mainloop()
+```
+
+```py
+# Prompt for input
+screen.textinput(title='title', prompt='prompt')
+```
+
 ## Files & Directories
 
 You can read, write, append etc to a file with the syntax:
@@ -73,8 +112,14 @@ col = data.columnName
 row = data[data.colName == 'col_value_for_that_row']
 
 # Create DataFrame from dictionary
+dict = {
+    "Name": ["Hs", "Hn", "Gl"],
+    "age": [1, 2, 3]
+}
+
 df = pandas.DataFrame(dict)
 
 # df to csv and save in a file
 df.to_csv('file_to_save_to.csv')
+
 ```
