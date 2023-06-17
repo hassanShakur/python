@@ -55,3 +55,26 @@ with open(file='text.txt', mode='w') as file:
 ```
 
 `append` will have the mode `a`. To create a new file, use mode `w` and the file name should not be exixting in the target directory.
+
+## Pandas
+
+```py
+import pandas
+
+# Reading csvs
+data = pandas.read_csv('path/to/csv') # DataFrame - Table like struct
+
+# Access a column
+col = data['columnName'] # Series - 1D col
+# Or
+col = data.columnName
+
+# Accessing a row based on a filter value
+row = data[data.colName == 'col_value_for_that_row']
+
+# Create DataFrame from dictionary
+df = pandas.DataFrame(dict)
+
+# df to csv and save in a file
+df.to_csv('file_to_save_to.csv')
+```
