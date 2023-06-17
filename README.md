@@ -18,6 +18,21 @@ The comprehension can be conditional, i.e only if a test is passed. Just add an 
 new = [x for x in old if x === 'test']
 ```
 
+### Dictionary comprehension
+
+The resulting structure is a `dictionary`.
+
+```py
+# From a sequence eg list
+new_dict = {my_key: my_value for x in iterableSequence}
+
+# From another dict
+new_dict = {my_key: my_value for (key, val) in old_dict.items()}
+
+# Adding a condition
+new_dict = {my_key: my_value for (key, val) in old_dict.items() if val > 3}
+```
+
 ## OOP Basics
 
 ```py
@@ -122,4 +137,15 @@ df = pandas.DataFrame(dict)
 # df to csv and save in a file
 df.to_csv('file_to_save_to.csv')
 
+```
+
+You can also loop through each row in a `df` using `iterrow()`:
+
+```py
+import pandas
+
+df = pandas.DataFrame('some.csv')
+
+for (index, row) in df.iterrows():
+    print(row)
 ```
