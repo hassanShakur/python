@@ -191,3 +191,23 @@ window.minsize(width=300, height=200)
 
 window.mainloop()
 ```
+
+### Tkinter Layout Managers
+
+1. Pack => Arrangement in center by default, 1 over another. Use `side` to specify either `top`, `left`...
+
+   ```py
+    btn.pack()
+   ```
+
+2. Place => Requires coordinates: x & y for precise positioning.
+
+   ```py
+    btn.place(x=10, y=30)
+   ```
+
+3. Grid => Requires the `column` & `row` numbers to place an item relative to other placed items.
+
+   ```py
+    btn.grid(column=1, row=2)
+   ```
