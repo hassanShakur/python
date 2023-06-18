@@ -33,6 +33,19 @@ new_dict = {my_key: my_value for (key, val) in old_dict.items()}
 new_dict = {my_key: my_value for (key, val) in old_dict.items() if val > 3}
 ```
 
+### Unlimited Positional Args
+
+```py
+def add(*args):
+    sum = 0
+    for num in args:
+        sum += num
+    return sum
+
+
+add(1,2,3)
+```
+
 ## OOP Basics
 
 ```py
@@ -148,4 +161,18 @@ df = pandas.DataFrame('some.csv')
 
 for (index, row) in df.iterrows():
     print(row)
+```
+
+## Tkinter
+
+Basic window:
+
+```py
+import tkinter
+
+window = tkinter.Tk()
+window.title('Tk Basics')
+window.minsize(width=300, height=200)
+
+window.mainloop()
 ```
