@@ -1,8 +1,7 @@
-def add(*args):
-    sum = 0
-    for num in args:
-        sum += num
-    return sum
+class Test:
+    def __init__(self, **kwargs) -> None:
+        self.name = kwargs.get("name")
+        self.tester = kwargs["tester"]
 
 
-print(add(1, 2, 3))
+test = Test(name="Test 1", tester="A")

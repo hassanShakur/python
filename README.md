@@ -46,6 +46,21 @@ def add(*args):
 add(1,2,3)
 ```
 
+### Unlimited Keyword Args - `kwargs`
+
+The keyword args provided creates a dictionary which can be looped through or access a specific arg.
+
+```py
+class Test:
+    def __init__(self, **kwargs) -> None:
+        self.tester = kwargs["tester"] # Might cause err if arg is not present
+        self.name = kwargs.get("name") # If arg not specified, its = Null
+
+
+test = Test(name="Test 1", tester="A")
+
+```
+
 ## OOP Basics
 
 ```py
