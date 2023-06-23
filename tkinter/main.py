@@ -6,7 +6,7 @@ window.title("Tk Basics")
 window.minsize(width=300, height=200)
 
 # Padding
-window.config(padx=10, pady=10)
+window.config(padx=10, pady=10, bg='#fff')
 
 # Label
 label = Label(text="Han", font=("Arial", 10, "italic"))
