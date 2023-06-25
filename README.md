@@ -212,3 +212,36 @@ window.mainloop()
    ```py
     btn.grid(column=1, row=2)
    ```
+
+## Here Comes JSON
+
+```py
+import json
+
+# Read a json file
+with open('my.json', 'r') as my_json:
+    info = json.load(my_json)
+
+my_dict = {
+    'key': {
+        'val1': 'Ans',
+        'val2': 'Ans 2',
+    }
+}
+
+# Write to a json file
+with open('my.json', 'w') as my_json:
+    # what & where
+    json.dump(my_dict, my_json, indent=2)
+
+# Update => Read, update, write
+with open('my.json', 'r') as my_json:
+    # Read
+    info = json.load(my_json)
+    # Update
+    info.update(new_dict)
+
+with open('my.json', 'w') as my_json:
+    json.dump(info, my_json, indent=2)
+
+```

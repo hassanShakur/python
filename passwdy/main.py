@@ -1,4 +1,5 @@
 from tkinter import *
+import json
 from tkinter import messagebox
 from passwd_generator import generate_passwd
 
@@ -11,7 +12,8 @@ def save_details():
     password = passwd_entry.get()
     user = user_entry.get()
 
-    validate_input(web, password, user)
+    if not input_is_valid(web, password, user):
+        return
 
     all_fine = messagebox.askokcancel(
         title="Confirmation",
@@ -21,21 +23,36 @@ def save_details():
     if not all_fine:
         return
 
-    with open("./passwdy/dragon.txt", mode="a") as info:
-        info.write(f"{web} | {user} | {password}\n")
+    new_info = {web: {"password": password, "username": user}}
 
-    for entry in [web_entry, user_entry, passwd_entry]:
-        entry.delete(0, END)
+    try:
+        with open("./passwdy/dragon.json", mode="r") as info:
+            read_info = json.load(info)
 
-    messagebox.showinfo(title="Success ✅", message="Information recorded.")
+    except FileNotFoundError:
+        with open("./passwdy/dragon.json", mode="w") as info:
+            json.dump(new_info, info, indent=2)
+
+    else:
+        read_info.update(new_info)
+        with open("./passwdy/dragon.json", mode="w") as info:
+            json.dump(read_info, info, indent=2)
+
+    finally:
+        for entry in [web_entry, user_entry, passwd_entry]:
+            entry.delete(0, END)
+
+        messagebox.showinfo(title="Success ✅", message="Information recorded.")
 
 
-def validate_input(web, password, user):
+def input_is_valid(web, password, user):
     for value in [web, password, user]:
         if len(value) == 0:
-            return messagebox.showinfo(
+            messagebox.showinfo(
                 title="There now 🙂...", message="Ensure all fields are filled"
             )
+            return False
+    return True
 
 
 def create_passwd():
