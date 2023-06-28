@@ -245,3 +245,29 @@ with open('my.json', 'w') as my_json:
     json.dump(info, my_json, indent=2)
 
 ```
+
+## Then SMTP
+
+There are different hosts for different mail providers:
+
+1. Gmail - `smtp.gmail.com`
+2. Yahoo - `smtp.mail.yahoo.com`
+3. Hotmail - `smtp.live.com`
+
+```py
+import smtplib
+
+HOST = "smtp.gmail.com"
+from_email = "janedoe@gmail.com"
+to_email = "rose@yahoo.com"
+
+with smtplib.SMTP(host=HOST) as connection:
+    # Engage transport layer security mode
+    connection.starttls()
+    connection.login(user=from_email, password="1234")
+    connection.sendmail(
+        from_addr=from_email,
+        to_addrs=to_email,
+        msg="Subject: The Great Heading\n\nBody goes here",
+    )
+```
