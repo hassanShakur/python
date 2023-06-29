@@ -21,6 +21,9 @@ def btn_click_handler():
 
 # Event listner using command
 btn = Button(text="Click", command=btn_click_handler)
+
+# Disable btn
+btn.config(state='disabled')
 btn.pack()
 
 # Imput
