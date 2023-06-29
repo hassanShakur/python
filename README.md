@@ -193,6 +193,17 @@ window.config(padx=10, pady=10, bg='#fff')
 window.mainloop()
 ```
 
+When dealing with a canvas, text color is changed using the `fill` property. Normal text color is altered using the `fg` prop.
+
+```py
+from tkinter import *
+
+canvas = Canvas(width=200, height=200, bg="black")
+text = canvas.create_text(100, 100, text="Some text", fill="white")
+normal_txt = Label(text="Normal", fg="black")
+
+```
+
 ### Tkinter Layout Managers
 
 1. Pack => Arrangement in center by default, 1 over another. Use `side` to specify either `top`, `left`...
