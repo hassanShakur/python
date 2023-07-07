@@ -326,3 +326,60 @@ def hello():
 if __name__ == "__main__":
     app.run()
 ```
+
+### Templating
+
+All `html templates` should be in the `templates` folder and `static` assets like `css` & `images` in the `static` folder. Use the `render_template('template_name')` to serve them. This function receives unlimited `kwargs` which is data that can be passed to the template.
+
+```py
+@app.route("/")
+def home():
+    return render_template('index.html', text='Hello world')
+```
+
+Then to receive the kwargs in the `html`:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <link rel="stylesheet" href="static/style.css" />
+    <title>Flask</title>
+  </head>
+  <body>
+    <h1>{{ text }}</h1>
+  </body>
+</html>
+```
+
+### Dynamic Routing
+
+Routes can be made from links for redirection and data can also be sent to the controller from the link:
+
+```html
+<a href="{{url_for('greeter', name='hassan')}}">Greet me</a>
+```
+
+Then on the server:
+
+```py
+@app.route("/hello/<name>")
+def greeter(name):
+    return f"Hello {name.title()}"
+```
+
+### A Bit of Jinja
+
+`Jinja` helps in complex and multiline code writing in template files. Example for a for loop:
+
+```html
+<!-- nums is passed from server -->
+{% for num in nums: %}
+<p>{{num}}</p>
+{% endfor %}
+```

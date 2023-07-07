@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <link rel="stylesheet" href="static/style.css" />
+    <title>Flask</title>
+  </head>
+  <body>
+    <h1>{{ text }}</h1>
+    {% for num in nums: %}
+    <p>{{num}}</p>
+    {% endfor %}
+    <a href="{{url_for('greeter', name='hassan')}}">Greet me</a>
+  </body>
+</html>
